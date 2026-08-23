@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #001148;
+}
+
+h1{
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+p, li{
+    font-size: 2rem;
+}
+
+.infoCidadeInteligente {
+    margin-left: 10rem;
+    p {
+        max-width: 68.5rem;
+    }
+
+    span {
+        font-size: 6rem;
+        font-weight: 600;
+        color: #05DBFC;
+    }
+}
+
+.cidadeEsperta {
+    display: flex;
+    border: solid 1px red;
+}
+
+div {
+    border: 1px solid red;
+}
+
+.tornaInteligente {
+    background: white;
+    
+    h2 {
+        color: black;
+        font-size: 6rem;
+    }
+
+    span {
+        color: #07378F;
+        font-size: 6rem;
+    }
+}

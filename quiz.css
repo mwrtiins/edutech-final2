@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  color: #ffffff;
+  min-height: 100vh;
+  background: linear-gradient(
+    to top,
+    #133293 7.4%,
+    #001148 93.7%
+  );
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 60px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  height: 55px;
+  width: auto;
+}
+
+.conteudocentral {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  padding: 30px 0;
+}
+
+
+.titulo {
+  max-width: 800px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.titulo .l {
+  display: block;
+}
+
+.titulo .ld {
+  color: #05dbfc;
+}
+
+.quiz-card {
+  max-width: 670px;
+  width: 100%;
+  padding: 50px;
+  background: rgba(0, 42, 161, 0.2);
+  border-radius: 27px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.quiz-card h2 {
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 35px;
+}
+
+.option {
+  display: block;
+  margin-bottom: 20px;
+  padding: 20px 30px;
+  background: rgba(5, 74, 209, 0.69);
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 1.4;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.enviar {
+  display: block;
+  margin: 15px auto 0;
+  padding: 16px 60px;
+  background: rgba(2, 64, 202, 0.2);
+  border: none;
+  border-radius: 9px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 20px;
+  }
+
+  .header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav {
+    justify-content: center;
+    gap: 16px;
+    font-size: 14px;
+  }
+
+  .titulo {
+    font-size: 28px;
+  }
+
+  .quiz-card {
+    padding: 24px;
+  }
+
+  .quiz-card h2 {
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  .option {
+    font-size: 14px;
+    padding: 14px 18px;
+  }
+
+  .enviar {
+    width: 100%;
+    font-size: 18px;
+    padding: 14px;
+  }
+}

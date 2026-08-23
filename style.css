@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    background-image: url("imgs/imagem\ 1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+}
+
+.Hero {
+    margin-left: 45px;
+    margin-top: 0px;
+}
+
+.Hero p:first-child {
+    color: #00ff9d;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.Hero h1 {
+    color: white;
+    font-size: 40px;
+    line-height: 1.05;
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+
+.Hero p:last-child {
+    color: white;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 450px;
+}
+
+
+.Navegação {
+    display: flex;
+    gap: 35px;
+
+    margin-left: 45px;
+    margin-top: 25px;
+}
+
+.Navegação a {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+
+    color: #001b2e;
+    background-color: #00ff9d;
+
+    padding: 11px 18px;
+    border-radius: 25px;
+}
+
+
+.Navegação a:last-child {
+    background-color: transparent;
+    color: white;
+    border: 1px solid #00ff9d;
+     transition: all 0.3s ease;
+}
+
+.Navegação a:last-child:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.Navegação a:first-child {
+    color: #001b2e;
+    background-color: #00ff9d;
+    transition: 0.2s ease;
+}
+
+.Navegação a:first-child:hover {
+    background-color: #119464;
+    color: white;
+}
+

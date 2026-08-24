@@ -3,56 +3,325 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 62.5%;
-    color: white;
     font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-dark: #001454;
+    --card-blue: #07378F;
+    --cyan: #05DBFC;
+    --green-bright: #00FF88;
+    --cinema-bg: #00BD6B;
+    --light-bg: #EAEAEA;
+    --white: #FFFFFF;
 }
 
 body {
     min-height: 100vh;
-    background: #001148;
+    background: var(--bg-dark);
+    color: var(--white);
 }
 
-h1{
-    font-size: 6rem;
-    font-weight: 600;
-}
-
-p, li{
-    font-size: 2rem;
+/* Hero Section */
+.cidadeEsperta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 8rem;
+    background: var(--bg-dark);
 }
 
 .infoCidadeInteligente {
-    margin-left: 10rem;
-    p {
-        max-width: 68.5rem;
-    }
-
-    span {
-        font-size: 6rem;
-        font-weight: 600;
-        color: #05DBFC;
-    }
+    max-width: 65rem;
 }
 
-.cidadeEsperta {
-    display: flex;
-    border: solid 1px red;
+.infoCidadeInteligente h1, .infoCidadeInteligente span {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
 }
 
-div {
-    border: 1px solid red;
+.infoCidadeInteligente p {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: #d1d5db;
 }
 
+.ciano {
+    color: var(--cyan);
+}
+
+.imgCidadeSmart {
+    width: 70rem;
+    height: 50rem;
+}
+
+/* O que torna inteligente */
 .tornaInteligente {
-    background: white;
-    
-    h2 {
-        color: black;
-        font-size: 6rem;
-    }
+    background: var(--light-bg);
+    padding: 6rem 8rem;
+}
 
-    span {
-        color: #07378F;
-        font-size: 6rem;
+.tornaInteligente h2, .tornaInteligente span {
+    color: #000;
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+}
+
+.tornaInteligente h2 span {
+    color: var(--card-blue);
+}
+
+.cards {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    
+}
+
+.card {
+    background: var(--card-blue);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-height: 50rem;
+}
+
+.card img {
+    width: 100%;
+    height: 28rem;
+    object-fit: cover;
+    border-radius: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.card h3 {
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+.card ul {
+    list-style-type: disc;
+    padding-left: 9rem;
+}
+
+.card li {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+    color: var(--white);
+}
+
+/* Estudo de Caso */
+.caso {
+    background: var(--bg-dark);
+    padding: 6rem 8rem;
+}
+
+.headerCaso {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.textoCaso h2 {
+    color: var(--cyan);
+    font-size: 5rem;
+    font-weight: 400;
+}
+
+.textoCaso #coritiba {
+    color: var(--green-bright);
+    font-size: 8rem;
+    font-weight: 700;
+}
+
+.textoCaso p, .textoCaso span.ciano {
+    font-size: 5.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.imgHeaderCaso {
+    width: 65rem;
+    height: 35rem;
+    border-radius: 1rem;
+}
+
+.cardsCaso {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cardCaso {
+    background: var(--light-bg);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 3rem;
+    color: #000;
+}
+
+.cardCaso img {
+    width: 65rem;
+    height: 39rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.conteudoCaso {
+    width: 55%;
+}
+
+.conteudoCaso h3 {
+    font-size: 5rem;
+    color: var(--card-blue);
+    margin-bottom: 1.5rem;
+}
+
+.conteudoCaso p {
+    font-size: 2rem;
+    max-width: 56rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.cardCaso.inverte {
+    flex-direction: row;
+    background: var(--bg-dark);
+
+    p, h3 {
+        color: var(--white);
     }
+}
+
+/* Cinema */
+.cinema {
+    background: var(--cinema-bg);
+    padding: 6rem 8rem;
+}
+
+.cinema h2 {
+    font-size: 6rem;
+    color: #000;
+    margin-bottom: 4rem;
+    font-weight: 600;
+}
+
+.cinema h2 span {
+    color: #000;
+    font-size: 6rem;
+    font-weight: 700;
+}
+
+.cardsCinema {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.cardCinema {
+    background: var(--light-bg);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    color: #000;
+}
+
+.cardCinema img {
+    width: 18rem;
+    height: 24rem;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.infoCinema h3 {
+    font-size: 3.6rem;
+    margin-bottom: 0.5rem;
+}
+
+.infoCinema .ano {
+    font-size: 1.8rem;
+    color: #07378F;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.infoCinema p {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: #000;
+}
+
+/* Desenvolvedores */
+.desenvolvedores {
+    background: var(--light-bg);
+    padding: 6rem 8rem;
+    text-align: center;
+}
+
+.desenvolvedores h2 {
+    font-size: 4rem;
+    color: #000;
+    margin-bottom: 5rem;
+}
+
+.desenvolvedores h2 span {
+    font-size: 4rem;
+    color: var(--card-blue);
+}
+
+.gridDevs {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.dev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev img {
+    width: 14rem;
+    height: 14rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4rem solid var(--card-blue);
+    border: 3px solid #07378F;
+    margin-bottom: 1.5rem;
+}
+
+.dev p {
+    font-size: 1.8rem;
+    color: #000;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background: #000C33;
+    text-align: center;
+    padding: 2rem;
+}
+
+footer p {
+    font-size: 1.4rem;
+    color: #888;
 }

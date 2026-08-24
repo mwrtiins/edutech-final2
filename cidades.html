@@ -4,96 +4,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="imgs/icone.png" type="image/x-icon">
-    <link rel="stylesheet" href="cidades.css">
     <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="cidades.css">
     <title>Cidades Inteligentes</title>
 </head>
 
 <body>
     <header>
         <img src="imgs/logo 1.png" alt="Logo">
-
+    
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="">Urbanização</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="">Sobre Nós</a>
+          <a href="index.html">Inicio</a>
+          <a href="">Urbanização</a>
+          <a href="quiz.html">Quiz</a>
+          <a href="#sobre-nos">Sobre Nós</a>
         </nav>
-    </header>
+      </header>
 
     <section class="cidadeEsperta">
         <div class="infoCidadeInteligente">
-            <h1>O que é uma <span>Cidade Inteligente?</span></h1>
+            <h1>O que é uma <span class="ciano">Cidade Inteligente?</span></h1>
             <p>Uma cidade inteligente (smart city) é uma cidade que utiliza tecnologias digitais, sistemas de
                 comunicação, sensores, internet das coisas (IoT), inteligência artificial e análise de dados para
                 planejar, administrar e melhorar os serviços urbanos. O principal objetivo desse modelo é aumentar a
                 qualidade de vida da população, tornando a cidade mais eficiente, sustentável, segura e inclusiva.</p>
         </div>
-        <img src="imgs/cidadeSmart.png" alt="">
+        <img src="imgs/cidadeSmart.png" alt="Ilustração Cidade Inteligente" class="imgCidadeSmart">
     </section>
 
     <section class="tornaInteligente">
         <h2>O que torna uma <span>Cidade Inteligente?</span></h2>
-        <div>
-            <img src="imgs/mobilidade.png" alt="">
-            <h3>Mobilidade inteligente</h3>
-            <ul>
-                <li>Semáforos que se adaptam ao trânsito em tempo real</li>
-                <li>Sistemas de transporte público conectados</li>
-                <li>Aplicativo para informar rotas e horários</li>
-            </ul>
-        </div>
-        <div>
-            <img src="imgs/energia.png" alt="">
-            <h3>Gestão eficiente de energia</h3>
-            <ul>
-                <li>Iluminação pública com leds e sensores</li>
-                <li>Redes elétricas inteligentes (smart grids)</li>
-                <li>Uso de energias renováveis</li>
-            </ul>
-        </div>
-        <div>
-            <img src="imgs/sustentabilide.png" alt="">
-            <h3>Sustentbilidade ambiental</h3>
-            <ul>
-                <li>Monitoramento da qualidade do ar</li>
-                <li>Gestão inteligente de resíduos</li>
-                <li>Controle do consumo de água</li>
-            </ul>
-        </div>
-        <div>
-            <img src="imgs/cidadao.png" alt="">
-            <h3>Participação cidadã</h3>
-            <ul>
-                <li>Ferramentas digitais para sugestões e reclamações</li>
-                <li>Transparência na gestão pública</li>
-                <li>Consultas públicas online</li>
-            </ul>
-        </div>
-        <div>
-            <img src="imgs/tecnologia.png" alt="">
-            <h3>Tecnologia e conectividade</h3>
-            <ul>
-                <li>Internet de alta velocidade</li>
-                <li>Sensores espalhados pela cidade para coletar dados</li>
-                <li>Plataformas digitais para serviços públicos</li>
-            </ul>
-        </div>
-        <div>
-            <img src="imgs/servico.png" alt="">
-            <h3>Serviços públicos eficientes</h3>
-            <ul>
-                <li>Saúde digital e telemedicina</li>
-                <li>Segurança com monitoramento inteligente</li>
-                <li>Atendimento ao cidadão por aplicativos e portais onlines</li>
-            </ul>
+
+        <div class="cards">
+            <div class="card">
+                <img src="imgs/mobilidade.png" alt="Mobilidade">
+                <h3>Mobilidade inteligente</h3>
+                <ul>
+                    <li>Semáforos que se adaptam ao trânsito em tempo real.</li>
+                    <li>Sistemas de transporte público conectados.</li>
+                    <li>Aplicativos para informar rotas e horários.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="imgs/energia.png" alt="Energia">
+                <h3>Gestão eficiente de energia</h3>
+                <ul>
+                    <li>Iluminação pública com LEDs e sensores.</li>
+                    <li>Redes elétricas inteligentes (smart grids).</li>
+                    <li>Uso de energias renováveis.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="imgs/sustentabilide.png" alt="Sustentabilidade">
+                <h3>Sustentabilidade ambiental</h3>
+                <ul>
+                    <li>Monitoramento da qualidade do ar.</li>
+                    <li>Gestão inteligente de resíduos.</li>
+                    <li>Controle do consumo de água.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="imgs/cidadao.png" alt="Participação">
+                <h3>Participação cidadã</h3>
+                <ul>
+                    <li>Ferramentas digitais para sugestões e reclamações.</li>
+                    <li>Transparência na gestão pública.</li>
+                    <li>Consultas públicas online.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="imgs/tecnologia.png" alt="Tecnologia">
+                <h3>Tecnologia e conectividade</h3>
+                <ul>
+                    <li>Internet de alta velocidade.</li>
+                    <li>Sensores espalhados pela cidade para coletar dados.</li>
+                    <li>Plataformas digitais para serviços públicos.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <img src="imgs/servico.png" alt="Serviços">
+                <h3>Serviços públicos mais eficientes</h3>
+                <ul>
+                    <li>Saúde digital e telemedicina.</li>
+                    <li>Segurança com monitoramento inteligente.</li>
+                    <li>Atendimento ao cidadão por aplicativos e portais online.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
+    <section class="caso">
+        <div class="headerCaso">
+            <div class="textoCaso">
+                <h2>Estudo de Caso</h2>
+                <h1 id="coritiba">Curitiba:</h1>
+                <p>Planejamento que <br><span class="ciano">Transforma</span></p>
+            </div>
+            <img src="imgs/coritiba2.png" alt="Bonde Curitiba" class="imgHeaderCaso">
+        </div>
+
+        <div class="cardsCaso">
+            <div class="cardCaso">
+                <img src="imgs/curotiba 1.png" alt="Ônibus Elétrico">
+                <div class="conteudoCaso">
+                    <h3>Mobilidade Urbana</h3>
+                    <p>A mobilidade urbana de Curitiba é estruturada pelo Sistema Integrado de Mobilidade (SIM), gerido pela Urbs e reconhecido mundialmente pelo pioneirismo no modelo BRT. Apoia-se em canaletas exclusivas e estações-tubo, que agilizam trânsito e embarque, além de integração metropolitana e mobilidade ativa com ciclovias e o projeto Caminhar Melhor.</p>
+                </div>
+            </div>
+
+            <div class="cardCaso inverte">
+                <div class="conteudoCaso">
+                    <h3>Meio ambiente e <br>Sustentabilidade</h3>
+                    <p>Curitiba se destaca em sustentabilidade com mais de 30 parques estratégicos, coleta seletiva eficiente e avanços em eletrificação, incluindo eletropostos, veículos elétricos na limpeza urbana e IA no monitoramento do tráfego.</p>
+                </div>
+                <img src="imgs/meio 1.png" alt="Estação Tubo Verde">
+            </div>
+
+            <div class="cardCaso">
+                <img src="imgs/pilarex 1.png" alt="Vista aérea Curitiba">
+                <div class="conteudoCaso">
+                    <h3>Planejamento e <br>Mobilidade</h3>
+                    <p>O planejamento e a mobilidade de Curitiba se apoiam em pilares complementares: o Sistema BRT, pioneiro em canaletas exclusivas e estações-tubo que garantem rapidez no embarque, e o planejamento integrado, conduzido pelo IPPUC, unindo uso do solo e sistema viário. Na mobilidade ativa, a cidade soma mais de 252 km entre ciclovias, ciclofaixas e vias compartilhadas, além de investir na modernização de linhas troncais como Inter 2 e Interbairros II.</p>
+                </div>
+            </div>
+
+            <div class="cardCaso inverte">
+                <div class="conteudoCaso">
+                    <h3>Vale do Pinhão</h3>
+                    <p>Curitiba investe em inovação com o Vale do Pinhão, conectando startups e universidades, o Hipervisor Urbano para dados em tempo real, e o Curitiba APP com IA para atendimento ao cidadão. Destaca-se ainda pela Fábrica de Ideias (quase R$ 300 milhões), liderança em rede 5G e frotas elétricas de transporte público.</p>
+                </div>
+                <img src="imgs/vava.png" alt="Vale do Pinhão à noite">
+            </div>
+
+            <div class="cardCaso">
+                <img src="imgs/titi 1.png" alt="Jardim Botânico">
+                <div class="conteudoCaso">
+                    <h3>Por que Curitiba é <br>uma referência?</h3>
+                    <p>Curitiba é uma referência mundial em planejamento urbano, transporte público eficiente e sustentabilidade ambiental. A capital do Paraná destaca-se pela alta qualidade de vida e inovação em mobilidade, integrando o crescimento urbano à preservação de extensas áreas verdes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cinema">
+        <h2>Cidades do futuro no <span>Cinema</span></h2>
+
+        <div class="cardsCinema">
+            <div class="cardCinema">
+                <img src="imgs/blade.png" alt="Blade Runner 2049">
+                <div class="infoCinema">
+                    <h3>Blade Runner 2049</h3>
+                    <span class="ano">2017</span>
+                    <p>Blade Runner 2049 apresenta uma cidade futurista marcada pela superpopulação, pela tecnologia e por fortes contrastes sociais. O filme ajuda a imaginar possíveis desafios das cidades do futuro e os impactos do avanço tecnológico.</p>
+                </div>
+            </div>
+
+            <div class="cardCinema">
+                <img src="imgs/robot.png" alt="I, Robot">
+                <div class="infoCinema">
+                    <h3>I, Robot</h3>
+                    <span class="ano">2004</span>
+                    <p>I, Robô apresenta uma sociedade em que robôs e inteligência artificial fazem parte do cotidiano. O filme permite discutir como a tecnologia pode transformar os serviços, a segurança e a relação entre humanos e máquinas.</p>
+                </div>
+            </div>
+
+            <div class="cardCinema">
+                <img src="imgs/metropolis.png" alt="Metropolis">
+                <div class="infoCinema">
+                    <h3>Metropolis</h3>
+                    <span class="ano">1927</span>
+                    <p>Metrópolis mostra uma cidade industrializada e dividida socialmente. O filme permite refletir sobre os impactos da industrialização, do crescimento urbano acelerado e da desigualdade social nas cidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="desenvolvedores" id="sobre-nos">
+        <h2>Os <span>Desenvolvedores</span> que Transformam <br>Ideias em <span>Soluções</span></h2>
+
+        <div class="gridDevs">
+            <div class="dev">
+                <img src="imgs/gaga.png" alt="Gabriela Silva">
+                <p>Gabriela Silva</p>
+            </div>
+            <div class="dev">
+                <img src="imgs/euu.jpg" alt="Luan Igor">
+                <p>Luan Igor</p>
+            </div>
+            <div class="dev">
+                <img src="imgs/mama.png" alt="Matheus da Silva">
+                <p>Matheus da Silva</p>
+            </div>
+            <div class="dev">
+                <img src="imgs/gugu.png" alt="Gustavo Moreira">
+                <p>Gustavo Moreira</p>
+            </div>
+            <div class="dev">
+                <img src="imgs/bibi.png" alt="Beatriz Souza">
+                <p>Beatriz Souza</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SmartCity Connect – Projeto Acadêmico</p>
+    </footer>
 </body>
 
 </html>

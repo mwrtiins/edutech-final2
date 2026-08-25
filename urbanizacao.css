@@ -1,0 +1,370 @@
+:root {
+    --bg-dark: #001454;
+    --card-blue: #07378F;
+    --cyan: #05DBFC;
+    --green-bright: #00FF88;
+    --cinema-bg: #00BD6B;
+    --light-bg: #EAEAEA;
+    --white: #FFFFFF;
+}
+
+#header {
+    background-color: var(--bg-dark);
+}
+
+.cidadeEsperta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 8rem;
+    background: var(--bg-dark);
+}
+
+.infoCidadeInteligente h1, .infoCidadeInteligente span {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.infoCidadeInteligente p {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: white;
+}
+
+
+.imgCidadeSmart {
+    width: 70rem;
+    height: 50rem;
+}
+
+.infoCidadeInteligente {
+    background: var(--bg-dark);
+    color: var(--white);
+}
+
+.infoCidadeInteligente img {
+    width: 49.5rem;
+    height: 49.5rem;
+}
+
+.infoCidadeInteligente span {
+    color: var(--cyan);
+}
+
+.porQueCresceram {
+    background: var(--light-bg);
+    padding: 6rem 8rem;
+    text-align: center;
+}
+
+.porQueCresceram h2 {
+    font-size: 6rem;
+    color: #000;
+    margin-bottom: 5rem;
+}
+
+.porQueCresceram h2 span {
+    font-size: 6rem;
+    color: var(--card-blue);
+}
+
+.gridIcones {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+}
+
+.itemIcone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circuloIcone {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    border: 3px solid var(--card-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background: transparent;
+}
+
+.circuloIcone img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+}
+
+.itemIcone h3 {
+    font-size: 2.5rem;
+    color: var(--card-blue);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.itemIcone p {
+    font-size: 2rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+.semPlanejamento {
+    background: var(--bg-dark);
+    padding: 6rem 8rem;
+}
+
+.semPlanejamento h2 {
+    font-size: 6rem;
+    color: var(--white);
+    margin-bottom: 4rem;
+    line-height: 1.2;
+}
+
+.semPlanejamento span {
+    color: var(--cyan);
+    font-size: 6rem;
+}
+
+.cardsPlanejamento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.cardPlanejamento {
+    background: var(--cyan);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 50rem;
+    width: 36rem;
+    color: #000;
+}
+
+.cardPlanejamento img {
+    width: 34rem;
+    height: 24rem;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.cardPlanejamento h3 {
+    font-size: 2.5rem;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.cardPlanejamento p {
+    font-size: 2rem;
+    color: #111;
+    line-height: 1.5;
+}
+
+.urbanizacaoBrasil {
+    background: var(--cinema-bg);
+    padding: 6rem 8rem;
+}
+
+.urbanizacaoBrasil h2 {
+    font-size: 6rem;
+    color: #000;
+    font-weight: 700;
+}
+
+.destaqueAzul {
+    color: var(--card-blue);
+}
+
+.subtituloBrasil {
+    font-size: 2rem;
+    color: #222;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.cardGrafico {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cardGrafico h3 {
+    font-size: 2.5rem;
+}
+
+.cardGrafico img {
+    width: 120rem;
+    height: 50rem;
+}
+
+.cardFatores {
+    background: var(--white);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    color: #000;
+}
+
+.cardFatores h3 {
+    font-size: 2rem;
+    color: var(--card-blue);
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+}
+
+.gridFatores {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.itemFator {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.itemFator img {
+    width: 16rem;
+    height: 13rem;
+    object-fit: contain;
+}
+
+.itemFator h4 {
+    font-size: 2rem;
+    color: var(--card-blue);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.itemFator p {
+    font-size: 1.5rem;
+    color: #000;
+    line-height: 1.4;
+}
+
+.transformacaoCidade {
+    background: var(--cinema-bg);
+    /* Fundo verde padrão */
+    padding: 6rem 8rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cardTransformacao {
+    background: var(--white);
+    border-radius: 2rem;
+    padding: 5rem 6rem;
+    width: 100%;
+    max-width: 110rem;
+    color: #333;
+}
+
+.cardTransformacao h2 {
+    font-size: 2.8rem;
+    color: var(--card-blue);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.cardTransformacao .subtitulo {
+    font-size: 1.6rem;
+    color: #555;
+    margin-bottom: 4rem;
+}
+
+.cardTransformacao h3 {
+    font-size: 2.2rem;
+    color: var(--card-blue);
+    font-weight: 700;
+    margin-bottom: 5rem;
+}
+
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.linhaCentral {
+    position: absolute;
+    left: 50%;
+    top: 1rem;
+    bottom: 1rem;
+    width: 2px;
+    background-color: var(--bg-dark);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timelineItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.pontoTimeline {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: var(--bg-dark);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.colunaTexto,
+.colunaImagem {
+    width: 43%;
+}
+
+.conteudoEsquerda {
+    text-align: left;
+}
+
+.conteudoDireita {
+    text-align: left;
+}
+
+.colunaImagem img {
+    width: 100%;
+    height: 22rem;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    display: block;
+}
+
+.colunaTexto .ano {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--bg-dark);
+    display: block;
+    line-height: 1;
+}
+
+.colunaTexto h4 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--bg-dark);
+    margin-bottom: 1.2rem;
+}
+
+.colunaTexto p {
+    font-size: 1.4rem;
+    color: #000;
+    line-height: 1.5;
+}

@@ -1,11 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+
 :root {
     --bg-dark: #001454;
     --card-blue: #07378F;
     --cyan: #05DBFC;
     --green-bright: #00FF88;
     --cinema-bg: #00BD6B;
-    --light-bg: #EAEAEA;
-    --white: #FFFFFF;
 }
 
 #header {
@@ -16,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6rem 8rem;
+    padding: 0 8rem 6rem 8rem;
     background: var(--bg-dark);
 }
 
@@ -28,7 +34,7 @@
 
 .infoCidadeInteligente p {
     font-size: 2rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: white;
 }
 
@@ -40,7 +46,7 @@
 
 .infoCidadeInteligente {
     background: var(--bg-dark);
-    color: var(--white);
+    color: white;
 }
 
 .infoCidadeInteligente img {
@@ -53,7 +59,7 @@
 }
 
 .porQueCresceram {
-    background: var(--light-bg);
+    background: white;
     padding: 6rem 8rem;
     text-align: center;
 }
@@ -82,44 +88,43 @@
 }
 
 .circuloIcone {
-    width: 12rem;
-    height: 12rem;
-    border-radius: 50%;
-    border: 3px solid var(--card-blue);
+    width: 22rem;
+    height: 24rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     background: transparent;
 }
 
 .circuloIcone img {
-    width: 6rem;
-    height: 6rem;
+    width: 22rem;
+    height: 24rem;
     object-fit: contain;
 }
 
 .itemIcone h3 {
     font-size: 2.5rem;
-    color: var(--card-blue);
+    color: var(--bg-dark);
     margin-bottom: 0.8rem;
     font-weight: 700;
 }
 
 .itemIcone p {
     font-size: 2rem;
-    color: #444;
+    color: #000;
     line-height: 1.4;
 }
 
 .semPlanejamento {
     background: var(--bg-dark);
     padding: 6rem 8rem;
+    align-items: center;
 }
 
 .semPlanejamento h2 {
     font-size: 6rem;
-    color: var(--white);
+    color: white;
     margin-bottom: 4rem;
     line-height: 1.2;
 }
@@ -141,9 +146,9 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    height: 50rem;
-    width: 36rem;
+    align-items: center;
+    height: 44rem;
+    width: 100%;
     color: #000;
 }
 
@@ -153,19 +158,22 @@
     object-fit: cover;
     border-radius: 1rem;
     margin-bottom: 1.5rem;
+    align-self: center;
 }
 
 .cardPlanejamento h3 {
     font-size: 2.5rem;
-    color: #000;
-    font-weight: 700;
+    color: var(--bg-dark);
+    font-weight: 600;
     margin-bottom: 0.8rem;
 }
 
 .cardPlanejamento p {
     font-size: 2rem;
-    color: #111;
+    color: var(--bg-dark);
+    font-weight: 400;
     line-height: 1.5;
+    text-align: center;
 }
 
 .urbanizacaoBrasil {
@@ -181,26 +189,23 @@
 
 .destaqueAzul {
     color: var(--card-blue);
+    font-size: 6rem;
 }
 
 .subtituloBrasil {
     font-size: 2rem;
-    color: #222;
+    color: #000;
     margin-top: 0.5rem;
     margin-bottom: 3rem;
 }
 
 .cardGrafico {
-    background: var(--white);
+    background: white;
     border-radius: 1.5rem;
     padding: 3rem;
     margin-bottom: 3rem;
     display: flex;
     justify-content: center;
-}
-
-.cardGrafico h3 {
-    font-size: 2.5rem;
 }
 
 .cardGrafico img {
@@ -209,15 +214,14 @@
 }
 
 .cardFatores {
-    background: var(--white);
+    background: white;
     border-radius: 1.5rem;
     padding: 3rem;
     color: #000;
 }
 
 .cardFatores h3 {
-    font-size: 2rem;
-    color: var(--card-blue);
+    font-size: 2.5rem;
     margin-bottom: 2.5rem;
     font-weight: 700;
 }
@@ -242,51 +246,50 @@
 
 .itemFator h4 {
     font-size: 2rem;
-    color: var(--card-blue);
+    color: var(--bg-dark);
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
 .itemFator p {
     font-size: 1.5rem;
-    color: #000;
+    color: var(--bg-dark);
     line-height: 1.4;
 }
 
 .transformacaoCidade {
     background: var(--cinema-bg);
-    /* Fundo verde padrão */
     padding: 6rem 8rem;
     display: flex;
     justify-content: center;
 }
 
 .cardTransformacao {
-    background: var(--white);
+    background: white;
     border-radius: 2rem;
     padding: 5rem 6rem;
     width: 100%;
     max-width: 110rem;
-    color: #333;
+    color: #000;
 }
 
 .cardTransformacao h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     color: var(--card-blue);
     font-weight: 700;
     margin-bottom: 0.8rem;
 }
 
 .cardTransformacao .subtitulo {
-    font-size: 1.6rem;
-    color: #555;
+    font-size: 2.5rem;
+    color: #000;
     margin-bottom: 4rem;
 }
 
 .cardTransformacao h3 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: var(--card-blue);
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 5rem;
 }
 
@@ -349,7 +352,7 @@
 }
 
 .colunaTexto .ano {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--bg-dark);
     display: block;
@@ -357,14 +360,25 @@
 }
 
 .colunaTexto h4 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: var(--bg-dark);
     margin-bottom: 1.2rem;
 }
 
 .colunaTexto p {
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: #000;
     line-height: 1.5;
+}
+
+footer {
+    background: var(--bg-dark);
+    text-align: center;
+    padding: 2rem;
+}
+
+footer p {
+    font-size: 1.8rem;
+    color: white;
 }

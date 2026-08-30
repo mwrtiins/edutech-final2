@@ -200,7 +200,6 @@ body {
     }
 }
 
-/* Cinema */
 .cinema {
     background: var(--cinema-bg);
     padding: 6rem 8rem;
@@ -240,6 +239,11 @@ body {
     height: 24rem;
     object-fit: cover;
     border-radius: 1rem;
+    transition: 0.3s;
+}
+
+.cardCinema img:hover {
+    transform: scale(1.05);
 }
 
 .infoCinema h3 {
@@ -261,7 +265,6 @@ body {
     color: #000;
 }
 
-/* Desenvolvedores */
 .desenvolvedores {
     background: var(--light-bg);
     padding: 6rem 8rem;
@@ -297,9 +300,11 @@ body {
     height: 14rem;
     border-radius: 50%;
     object-fit: cover;
-    border: 4rem solid var(--card-blue);
-    border: 3px solid #07378F;
     margin-bottom: 1.5rem;
+}
+
+.borda {
+    border: 0.3rem solid var(--card-blue);
 }
 
 .dev p {
@@ -308,14 +313,13 @@ body {
     font-weight: 600;
 }
 
-/* Footer */
 footer {
-    background: #000C33;
+    background: var(--bg-dark);
     text-align: center;
     padding: 2rem;
 }
 
 footer p {
-    font-size: 1.4rem;
-    color: #888;
+    font-size: 1.8rem;
+    color: white;
 }

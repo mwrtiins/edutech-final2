@@ -1,64 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartCity Connect Quiz</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-    <link rel="shortcut icon" href="../imgs/icone.png" type="image/x-icon">
-  <link rel="stylesheet" href="../styles/quiz.css">
-  <link rel="stylesheet" href="../styles/nav.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SmartCity Connect - Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="../imgs/icone.png" type="image/x-icon">
+<link rel="stylesheet" href="../styles/quiz.css">
+<script>try{if(localStorage.getItem("smartcity-ouro")==="1")document.documentElement.classList.add("modo-ouro")}catch(e){}</script>
 </head>
-
 <body>
-  <header>
-    <img src="../imgs/logo 1.png" alt="Logo">
 
-    <nav>
-      <a href="../index.html">Inicio</a>
-      <a href="urbanizacao.html">Urbanização</a>
-      <a href="cidades.html">Cidades Inteligentes</a>
-      <a href="cidades.html#sobre-nos">Sobre Nós</a>
-    </nav>
-  </header>
+<div class="cidade" id="cidade" aria-hidden="true">
+  <div class="estrelas" id="estrelas"></div>
+  <div class="nuvens" id="nuvens"></div>
+  <div class="avioes" id="avioes"></div>
+  <svg class="skyline" id="skyline" aria-hidden="true" focusable="false"></svg>
+</div>
 
-  <div class="page">
-    <div class="conteudocentral">
-      <h1 class="titulo">
-        <strong class="l">Você Está Pronto para o</strong>
-        <strong class="ld">Quiz do Futuro?</strong>
-      </h1>
+<header class="header">
+  <img src="../imgs/quiz/logo.png" alt="SmartCity Connect" class="logo">
+  <nav class="nav">
+    <a href="../index.html">Início</a>
+    <a href="urbanizacao.html">Urbanização</a>
+    <a href="cidades.html">Cidades Inteligentes</a>
+    <a href="cidades.html#sobre-nos">Sobre Nós</a>
+  </nav>
+</header>
 
-      <div class="quiz-card">
-        <h2>O que caracteriza uma cidade inteligente?</h2>
+<main>
+  <div id="tela-inicio" hidden>
+    <p class="tag-sistema centralizado"><span class="ponto-vivo"></span>Quiz SmartCity · ao vivo</p>
+    <h1 class="titulo">Pronto para o <span class="ld">Quiz do Futuro?</span></h1>
+    <p class="sub">Percorra as 5 regiões da SmartCity, complete as missões, ganhe XP e desbloqueie a cidade inteira.</p>
+    <div class="avatar-inicio"><svg class="avatar-svg" id="avatarInicio" viewBox="-1 -1 34 58" aria-hidden="true" focusable="false"></svg></div>
+    <button class="enviar" id="comecar">Entrar na SmartCity</button>
+    <button class="link-discreto" id="zerar" type="button" hidden>Reiniciar progresso</button>
+    <button class="link-discreto" id="ouroDesligar" type="button" hidden>Desativar Modo Ouro</button>
+  </div>
 
-        <label class="option">
-          <strong>A)</strong> O uso de tecnologia para melhorar serviços e a qualidade de vida.
-        </label>
+  <div id="tela-mapa" hidden>
+    <p class="tag-sistema centralizado"><span class="ponto-vivo"></span>Mapa da SmartCity</p>
+    <div class="mapa-hud">
+      <div class="hud-item"><small>XP</small><b id="hudXp">0</b></div>
+      <div class="hud-prog"><span id="hudTxt"></span><span class="barra"><i id="hudBarra"></i></span></div>
+      <div class="hud-item"><small>Regiões</small><b id="hudReg">0/5</b></div>
+    </div>
+    <div class="mapa" id="mapa"></div>
+  </div>
 
-        <label class="option">
-          <strong>B)</strong> A existência de muitos prédios altos.
-        </label>
+  <div id="tela-regiao" hidden>
+    <div class="card cartao-regiao">
+      <div class="reg-icone-grande" id="regIcone"></div>
+      <p class="tag-sistema centralizado"><span class="ponto-vivo"></span><span id="regStatus"></span></p>
+      <h2 id="regNome"></h2>
+      <p class="sub" id="regDesc"></p>
+      <button class="enviar" id="iniciarMissao">Iniciar missão</button>
+      <button class="link-discreto" id="regVoltar" type="button">← Voltar ao mapa</button>
+    </div>
+  </div>
 
-        <label class="option">
-          <strong>C)</strong> A localização próxima ao litoral.
-        </label>
+  <div id="tela-quiz" hidden>
 
-        <a href="outrapagina.html">
-          <button class="enviar">Enviar</button>
-        </a>
-
-      </div>
+    <div class="topo">
+      <p class="tag-sistema centralizado"><span class="ponto-vivo"></span>Quiz SmartCity · ao vivo</p>
+      <h1 class="titulo">Pronto para o <span class="ld">Quiz do Futuro?</span></h1>
     </div>
 
-  </div>
+    <div class="barra-missao">
+      <button class="voltar" id="voltarMapa" type="button">← Mapa</button>
+      <p class="tag-sistema" id="nomeRegiao"></p>
+      <div class="xp-chip" id="xpChip"><span id="xpRot">XP</span> <b id="xpValor">0</b></div>
+    </div>
+
+    <div class="console">
+
+      <aside class="painel-esq">
+        <div class="mascote-slot" id="mascote-quiz">
+          <div class="mascote" id="mascote" data-nivel="0" data-pose="descanso">
+            <div class="fala" id="fala" role="status" aria-live="polite"></div>
+            <svg class="mascote-svg" id="mascote-svg" viewBox="-1 -1 34 58" aria-hidden="true" focusable="false"></svg>
+          </div>
+        </div>
+        <div class="leitura">
+          <div class="leitura-num">
+            <span class="num-grande" id="numGrande">01</span>
+            <span class="num-total" id="numTotal">/10</span>
+          </div>
+        </div>
+        <div class="segmentos" id="segmentos"></div>
+      </aside>
+
+      <section class="painel-dir">
+        <div class="card" id="cartao">
+          <div class="pergunta-linha" id="perguntaLinha">
+            <figure class="foto-pergunta" id="fotoPergunta" hidden>
+              <img id="fotoImg" alt="" width="170" height="170">
+            </figure>
+            <h2 id="pergunta"></h2>
+          </div>
+          <div id="opcoes"></div>
+          <button class="enviar" id="botao" disabled>Enviar</button>
+        </div>
+      </section>
+
+    </div>
   </div>
 
+  <div id="tela-fim" hidden>
+    <p class="tag-sistema centralizado"><span class="ponto-vivo"></span>Transmissão concluída</p>
+    <h1 class="titulo" id="tituloFim">Você Dominou o<br><span class="ld">Quiz do Futuro</span></h1>
+    <div class="resultado-final">
+      <img src="../imgs/quiz/parabens.png" alt="" class="emoji">
+      <span class="pontos" id="pontos"></span>
+    </div>
+    <p class="xp-fim" id="xpFim"></p>
+    <div class="acoes-fim">
+      <button class="enviar" id="fimMapa" type="button">Voltar ao mapa</button>
+      <button class="refazer" id="refazer" type="button">Refazer missão</button>
+    </div>
+  </div>
+</main>
+
+<button class="som-toggle" id="somToggle" type="button" aria-label="Desligar o som" aria-pressed="false">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <path d="M11 5 6 9H3v6h3l5 4z" fill="currentColor"/>
+    <path class="ondas" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>
+    <path class="corte" d="M16 9l6 6M22 9l-6 6"/>
+  </svg>
+</button>
+
+<div class="modal-segredo" id="modalSegredo" role="dialog" aria-modal="true" aria-labelledby="segTitulo" hidden>
+  <div class="segredo-caixa">
+    <h2 id="segTitulo">🚨 VOCÊ ENCONTROU O SEGREDO!</h2>
+    <div class="segredo-foto"><img src="../imgs/quiz/segredo.jpg" alt="Foto de dois homens de camisa preta, de braços cruzados"></div>
+    <p class="segredo-legenda">Os BIN LADEN E PAI DO FBG FORAM ENCONTRADOS.</p>
+    <p class="segredo-fase"><b>Fase extra desbloqueada:</b> Quiz extra do 21CTI, com 4 perguntas.</p>
+    <button class="enviar" id="segredoFechar" type="button">Jogar o Quiz extra</button>
+    <button class="link-discreto" id="segredoDepois" type="button">Voltar ao mapa</button>
+  </div>
+</div>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+<div class="ouro-flash" id="ouroFlash" aria-hidden="true"></div>
+
+<script src="../scripts/quiz.js"></script>
 </body>
-
 </html>

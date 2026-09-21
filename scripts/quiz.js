@@ -1809,7 +1809,6 @@ function redesenharAvatares() {
 function trocarTema(ligar) {
   document.documentElement.classList.toggle("modo-ouro", ligar);
   ouroAtivo = ligar;
-  try { if (ligar) localStorage.setItem(CHAVE_OURO, "1"); else localStorage.removeItem(CHAVE_OURO); } catch (e) {}
   Mascote.ouro(ligar);
   redesenharAvatares();
   atualizarBotaoOuro();

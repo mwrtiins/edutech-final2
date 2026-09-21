@@ -1,0 +1,149 @@
+/* Urbanização no Brasil: painel do gráfico + fatores.
+   Carregado depois de urbanizacao.css, por isso sobrescreve .cardFatores e .itemFator. */
+
+.painelBrasil {
+    display: grid;
+    grid-template-columns: 27rem 1fr;
+    gap: 3.6rem;
+    align-items: center;
+    margin-bottom: 2.4rem;
+    padding: 3.4rem 3.8rem;
+    border-radius: 2.4rem;
+    color: #fff;
+    background:
+        radial-gradient(60rem 36rem at 92% 0%, rgba(5, 219, 252, 0.18), transparent 60%),
+        linear-gradient(160deg, #07378F -25%, #001454 60%);
+    border: 1px solid rgba(5, 219, 252, 0.28);
+    box-shadow: 0 2.4rem 6rem rgba(0, 20, 84, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.leitura {
+    display: flex;
+    flex-direction: column;
+}
+
+.leituraAno {
+    font: 500 1.7rem 'Space Grotesk', sans-serif;
+    color: #9fe8f7;
+}
+
+.leituraValor {
+    display: block;
+    margin: 0.4rem 0 1.4rem;
+    font: 700 8.6rem/1 'Space Grotesk', sans-serif;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    color: var(--cyan);
+    text-shadow: 0 0 4rem rgba(5, 219, 252, 0.4);
+}
+
+.leituraTexto {
+    min-height: 7.4rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #d7e3f5;
+}
+
+.medidor {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0.4rem;
+}
+
+.medidor span {
+    display: block;
+    height: 1rem;
+    border-radius: 0.3rem;
+    background: linear-gradient(90deg, var(--cyan) var(--f, 0%), rgba(255, 255, 255, 0.12) var(--f, 0%));
+}
+
+.leituraNota {
+    margin-top: 1.4rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #8fb0d8;
+}
+
+.graficoBox svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    cursor: crosshair;
+    touch-action: pan-y;
+}
+
+.graficoBox svg:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 6px;
+    border-radius: 0.6rem;
+}
+
+.dicaGrafico {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: right;
+    color: #8fb0d8;
+}
+
+/* elementos do SVG (unidades do viewBox) */
+.graficoBox .gl { stroke: rgba(255, 255, 255, 0.1); }
+.graficoBox .g50 { stroke: rgba(0, 255, 136, 0.6); stroke-dasharray: 4 5; }
+.graficoBox .gt { fill: #8fb0d8; font-size: 14px; }
+.graficoBox .gm { fill: #00FF88; font-size: 13px; }
+.graficoBox .valor { fill: #d7e3f5; font: 500 13px 'Space Grotesk', sans-serif; text-anchor: middle; }
+.graficoBox .guia { stroke: rgba(5, 219, 252, 0.5); stroke-dasharray: 3 4; }
+.graficoBox .halo { fill: rgba(5, 219, 252, 0.22); }
+.graficoBox .ponto { fill: #001454; stroke: #05DBFC; stroke-width: 2.5; transition: r 0.2s ease; }
+.graficoBox .linha {
+    fill: none;
+    stroke-width: 3.4;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(5, 219, 252, 0.7));
+}
+
+/* a curva se desenha uma vez */
+.graficoBox .linha { stroke-dasharray: var(--len); stroke-dashoffset: var(--len); }
+.graficoBox .area, .graficoBox .ponto, .graficoBox .valor { opacity: 0; }
+.visivel .graficoBox .linha { stroke-dashoffset: 0; transition: stroke-dashoffset 1.8s cubic-bezier(0.3, 0.6, 0.2, 1); }
+.visivel .graficoBox .area { opacity: 1; transition: opacity 1s ease 0.9s; }
+.visivel .graficoBox .ponto, .visivel .graficoBox .valor { opacity: 1; transition: opacity 0.6s ease 1.5s, r 0.2s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+    .graficoBox .linha { stroke-dasharray: none; stroke-dashoffset: 0; }
+    .graficoBox .area, .graficoBox .ponto, .graficoBox .valor { opacity: 1; }
+}
+
+/* fatores: uma faixa só, separada por fios */
+.cardFatores {
+    padding: 2.8rem 3.2rem;
+    border-radius: 2.4rem;
+    background: rgba(255, 255, 255, 0.97);
+}
+
+.gridFatores { gap: 0; }
+
+.itemFator {
+    align-items: center;
+    padding: 0 2.6rem;
+    border-left: 1px solid rgba(7, 55, 143, 0.16);
+}
+
+.itemFator:first-child { padding-left: 0; border-left: 0; }
+.itemFator:last-child { padding-right: 0; }
+
+.itemFator img {
+    width: 8.4rem;
+    height: 8.4rem;
+    transition: transform 0.35s ease;
+}
+
+.itemFator:hover img { transform: scale(1.08); }
+
+@media (max-width: 1000px) {
+    .painelBrasil { grid-template-columns: 1fr; padding: 2.6rem; }
+    .leituraTexto { min-height: 0; }
+    .gridFatores { grid-template-columns: 1fr; gap: 2rem; }
+    .itemFator, .itemFator:first-child, .itemFator:last-child { padding: 0; border-left: 0; }
+}

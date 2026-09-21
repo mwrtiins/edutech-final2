@@ -1,14 +1,29 @@
+:root {
+    --bg-dark: #001454;
+    --cyan: #05DBFC;
+    --green: #00ff9d;
+    --ink: #001b2e;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+::selection {
+    background: var(--cyan);
+    color: var(--bg-dark);
 }
 
 body {
     min-height: 100vh;
 
-    background-image: url("imgs/imagem\ 1.png");
+    /* leve sombra à esquerda para o texto respirar sobre a imagem */
+    background-image:
+        linear-gradient(90deg, rgba(0, 12, 50, 0.55) 0%, rgba(0, 12, 50, 0) 55%),
+        url("imgs/imagem 1.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -19,71 +34,133 @@ body {
 .Hero {
     margin-left: 45px;
     margin-top: 0px;
+    animation: entrar 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
+/* etiqueta em formato de "chip" com ponto pulsante */
 .Hero p:first-child {
-    color: #00ff9d;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--green);
     font-size: 11px;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    padding: 8px 16px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(0, 255, 157, 0.35);
+    border-radius: 999px;
+    background: rgba(0, 255, 157, 0.07);
+    backdrop-filter: blur(6px);
+}
+
+.Hero p:first-child::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: pulso 2.4s ease-in-out infinite;
 }
 
 .Hero h1 {
+    font-family: 'Space Grotesk', 'Poppins', sans-serif;
     color: white;
-    font-size: 40px;
-    line-height: 1.05;
-    max-width: 550px;
-    margin-bottom: 20px;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    max-width: 760px;
+    text-wrap: balance;
+    margin-bottom: 22px;
 }
 
 .Hero p:last-child {
-    color: white;
-    font-size: 14px;
-    line-height: 1.5;
-    max-width: 450px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 470px;
 }
 
 
 .Navegação {
     display: flex;
-    gap: 35px;
+    gap: 16px;
 
     margin-left: 45px;
-    margin-top: 25px;
+    margin-top: 34px;
+    animation: entrar 0.9s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 .Navegação a {
     text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 
-    color: #001b2e;
-    background-color: #00ff9d;
-
-    padding: 11px 18px;
-    border-radius: 25px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-
-.Navegação a:last-child {
-    background-color: transparent;
-    color: white;
-    border: 1px solid #00ff9d;
-     transition: all 0.3s ease;
-}
-
-.Navegação a:last-child:hover {
-    background-color: rgba(255, 255, 255, 0.18);
-}
-
+/* botão principal: verde -> ciano com brilho */
 .Navegação a:first-child {
-    color: #001b2e;
-    background-color: #00ff9d;
-    transition: 0.2s ease;
+    color: var(--ink);
+    background: linear-gradient(135deg, var(--green), var(--cyan));
+    box-shadow: 0 0 24px rgba(0, 255, 157, 0.3);
 }
 
 .Navegação a:first-child:hover {
-    background-color: #119464;
-    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 34px rgba(0, 255, 157, 0.5);
 }
 
+/* botão secundário: vidro */
+.Navegação a:last-child {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 255, 157, 0.55);
+    backdrop-filter: blur(10px);
+}
+
+.Navegação a:last-child:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.14);
+    border-color: var(--green);
+}
+
+@keyframes entrar {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes pulso {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .Hero,
+    .Navegação,
+    .Hero p:first-child::before {
+        animation: none;
+    }
+}

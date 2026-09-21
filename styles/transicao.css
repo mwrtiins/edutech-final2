@@ -1,0 +1,47 @@
+/* Transição entre páginas: uma cortina futurista que desliza pela tela.
+   Sai da página atual (.saindo) e abre na página nova (.entrando). */
+
+html.saindo::after,
+html.entrando::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    pointer-events: none;
+
+    background:
+        url("../imgs/logo 1.png") center / 380px auto no-repeat,
+        linear-gradient(rgba(5, 219, 252, 0.08) 1px, transparent 1px) 0 0 / 60px 60px,
+        linear-gradient(90deg, rgba(5, 219, 252, 0.08) 1px, transparent 1px) 0 0 / 60px 60px,
+        radial-gradient(circle at 50% 50%, #07378F 0%, #001454 70%);
+    border-right: 3px solid #00ff9d;
+    box-shadow: 0 0 80px 20px rgba(5, 219, 252, 0.55);
+}
+
+html.saindo::after {
+    animation: cobrir 0.65s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+
+html.entrando::after {
+    animation: descobrir 0.8s 0.2s cubic-bezier(0.7, 0, 0.2, 1) forwards;
+}
+
+@keyframes cobrir {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes descobrir {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: translateX(105%);
+    }
+}

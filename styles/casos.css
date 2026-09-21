@@ -1,0 +1,165 @@
+/* Estudo de caso: cada cartão começa só com foto + frase e abre com "Ver mais".
+   A foto desliza para o lado e o texto aparece. Carregado depois de cidades.css. */
+
+.cardCaso {
+    position: relative;
+    gap: 0;
+    overflow: hidden;
+}
+
+.cardCaso img {
+    flex: none;
+    width: 100%;
+    height: 28rem;
+    transition: width 0.8s cubic-bezier(0.65, 0, 0.25, 1), height 0.8s cubic-bezier(0.65, 0, 0.25, 1);
+}
+
+.cardCaso.aberto img {
+    width: 40rem;
+    height: 24rem;
+}
+
+/* texto completo: escondido até abrir */
+.conteudoCaso {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    transition: max-height 0.8s cubic-bezier(0.65, 0, 0.25, 1), visibility 0s 0.8s;
+}
+
+.cardCaso.aberto .conteudoCaso {
+    max-height: 40rem;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.detalheCaso {
+    min-width: 30rem;
+    padding: 0 1.3rem 0 2.6rem;
+}
+
+.cardCaso.inverte .detalheCaso {
+    padding: 0 2.6rem 0 1.3rem;
+}
+
+/* cada parte do texto entra em sequência: título, parágrafo, botão */
+.detalheCaso > * {
+    opacity: 0;
+    transform: translateX(4rem);
+    filter: blur(0.6rem);
+    transition: opacity 0.25s ease, transform 0.25s ease, filter 0.25s ease;
+}
+
+.cardCaso.inverte .detalheCaso > * {
+    transform: translateX(-4rem);
+}
+
+.cardCaso.aberto .detalheCaso > * {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition:
+        opacity 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.cardCaso.aberto .detalheCaso > :nth-child(1) { transition-delay: 0.25s; }
+.cardCaso.aberto .detalheCaso > :nth-child(2) { transition-delay: 0.42s; }
+.cardCaso.aberto .detalheCaso > :nth-child(3) { transition-delay: 0.6s; }
+
+/* capa: foto "censurada" (desfocada) com a frase curta por cima */
+.capaCaso {
+    position: absolute;
+    inset: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1.6rem;
+    padding: 3rem 3.4rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(180deg, rgba(0, 20, 84, 0.35) 0%, rgba(0, 20, 84, 0.8) 100%);
+    -webkit-backdrop-filter: blur(2.6rem) saturate(0.7);
+    backdrop-filter: blur(2.6rem) saturate(0.7);
+    transition: opacity 0.7s ease, backdrop-filter 0.7s ease, -webkit-backdrop-filter 0.7s ease, visibility 0s 0.7s;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .capaCaso { background: rgba(0, 20, 84, 0.94); }
+}
+
+.cardCaso.aberto .capaCaso {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+}
+
+.capaCaso p {
+    max-width: 58rem;
+    font: 700 2.6rem/1.25 'Space Grotesk', 'Poppins', sans-serif;
+    color: #fff;
+}
+
+.verMais,
+.verMenos {
+    padding: 1.1rem 2.6rem;
+    border-radius: 999px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.verMais {
+    border: 0;
+    background: linear-gradient(135deg, #00ff9d, var(--cyan));
+    color: #001b2e;
+    box-shadow: 0 0 2.4rem rgba(0, 255, 157, 0.25);
+}
+
+.verMais:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 3rem rgba(0, 255, 157, 0.45);
+}
+
+.verMenos {
+    margin-top: 1.8rem;
+    background: transparent;
+    border: 1px solid var(--borda-ciano);
+    color: #d7e3f5;
+}
+
+.verMenos:hover {
+    border-color: var(--cyan);
+    background: rgba(5, 219, 252, 0.15);
+}
+
+.verMais:focus-visible,
+.verMenos:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .cardCaso { flex-direction: column; }
+    .cardCaso.inverte { flex-direction: column-reverse; }
+    .cardCaso img,
+    .cardCaso.aberto img { width: 100%; height: 24rem; }
+    .conteudoCaso { flex: none; width: 100%; max-height: 0; transition: max-height 0.7s ease, visibility 0s 0.7s; }
+    .cardCaso.aberto .conteudoCaso { max-height: 80rem; transition-delay: 0s; }
+    .detalheCaso,
+    .cardCaso.inverte .detalheCaso { min-width: 0; padding: 2rem 1rem 1rem; }
+    .detalheCaso > *,
+    .cardCaso.inverte .detalheCaso > * { transform: translateY(2rem); }
+    .capaCaso { padding: 2rem; }
+    .capaCaso p { font-size: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cardCaso img, .conteudoCaso, .detalheCaso > *, .capaCaso { transition-duration: 0.01s !important; transition-delay: 0s !important; }
+}

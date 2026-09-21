@@ -12,292 +12,402 @@
     --cyan: #05DBFC;
     --green-bright: #00FF88;
     --cinema-bg: #00BD6B;
+
+    --grade: rgba(5, 219, 252, 0.06);
+    --borda-ciano: rgba(5, 219, 252, 0.28);
+    --vidro: linear-gradient(160deg, rgba(7, 55, 143, 0.55), rgba(0, 20, 84, 0.35));
 }
 
-#header {
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--card-blue) var(--bg-dark);
+}
+
+::selection {
+    background: var(--cyan);
+    color: var(--bg-dark);
+}
+
+/* fundo escuro com grade sutil e brilho ciano no topo */
+body {
     background-color: var(--bg-dark);
+    background-image:
+        linear-gradient(var(--grade) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grade) 1px, transparent 1px),
+        radial-gradient(closest-side, rgba(5, 219, 252, 0.2), transparent);
+    background-size: 6rem 6rem, 6rem 6rem, 90rem 60rem;
+    background-position: 0 0, 0 0, 100% 0;
+    background-repeat: repeat, repeat, no-repeat;
 }
 
+/* títulos com fonte mais tecnológica */
+:is(h1, h2, h3, h4),
+:is(h1, h2, h3, h4) span {
+    font-family: 'Space Grotesk', 'Poppins', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* barrinha neon embaixo dos títulos de seção */
+.porQueCresceram h2::after,
+.semPlanejamento h2::after,
+.urbanizacaoBrasil h2::after {
+    content: "";
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    margin-top: 1.2rem;
+    border-radius: 1rem;
+    background: linear-gradient(90deg, var(--cyan), var(--green-bright));
+}
+
+.porQueCresceram h2::after {
+    margin-inline: auto;
+    background: linear-gradient(90deg, var(--card-blue), var(--cyan));
+}
+
+.urbanizacaoBrasil h2::after {
+    background: var(--bg-dark);
+}
+
+
+/* ---------- Hero ---------- */
 .cidadeEsperta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 8rem 6rem 8rem;
-    background: var(--bg-dark);
-}
-
-.infoCidadeInteligente h1, .infoCidadeInteligente span {
-    font-size: 6rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-}
-
-.infoCidadeInteligente p {
-    font-size: 2rem;
-    line-height: 1.5;
-    color: white;
-}
-
-
-.imgCidadeSmart {
-    width: 70rem;
-    height: 50rem;
+    gap: 4rem;
+    padding: 0 7rem 4rem;
 }
 
 .infoCidadeInteligente {
-    background: var(--bg-dark);
+    max-width: 50rem;
     color: white;
 }
 
-.infoCidadeInteligente img {
-    width: 49.5rem;
-    height: 49.5rem;
+.infoCidadeInteligente h1,
+.infoCidadeInteligente h1 span {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
-.infoCidadeInteligente span {
+.infoCidadeInteligente h1 {
+    margin-bottom: 1.8rem;
+}
+
+.infoCidadeInteligente h1 span {
     color: var(--cyan);
 }
 
+.infoCidadeInteligente p {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+}
+
+.imgCidadeSmart {
+    width: 46rem;
+    height: 33rem;
+    filter: drop-shadow(0 0 5rem rgba(5, 219, 252, 0.3));
+}
+
+
+/* ---------- Por que as cidades cresceram (claro, com grade azul) ---------- */
 .porQueCresceram {
-    background: white;
-    padding: 6rem 8rem;
+    padding: 4.5rem 7rem;
     text-align: center;
+    background-color: #f3f7ff;
+    background-image:
+        linear-gradient(rgba(7, 55, 143, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 55, 143, 0.07) 1px, transparent 1px);
+    background-size: 6rem 6rem;
+    background-attachment: fixed;
+}
+
+.porQueCresceram h2,
+.porQueCresceram h2 span {
+    font-size: 3rem;
+    font-weight: 700;
 }
 
 .porQueCresceram h2 {
-    font-size: 6rem;
-    color: #000;
-    margin-bottom: 5rem;
+    color: var(--bg-dark);
+    margin-bottom: 3.6rem;
 }
 
 .porQueCresceram h2 span {
-    font-size: 6rem;
     color: var(--card-blue);
 }
 
 .gridIcones {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+    gap: 1.6rem;
 }
 
 .itemIcone {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem 1.4rem 2.2rem;
+    border-radius: 1.6rem;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(7, 55, 143, 0.15);
+    box-shadow: 0 1rem 3rem rgba(0, 20, 84, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.itemIcone:hover {
+    transform: translateY(-0.6rem);
+    border-color: var(--cyan);
+    box-shadow: 0 1.5rem 4rem rgba(5, 219, 252, 0.3);
 }
 
 .circuloIcone {
-    width: 22rem;
-    height: 24rem;
+    width: 13rem;
+    height: 14rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.2rem;
-    background: transparent;
+    margin-bottom: 1rem;
 }
 
 .circuloIcone img {
-    width: 22rem;
-    height: 24rem;
+    width: 13rem;
+    height: 14rem;
     object-fit: contain;
 }
 
 .itemIcone h3 {
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     color: var(--bg-dark);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
     font-weight: 700;
 }
 
 .itemIcone p {
-    font-size: 2rem;
-    color: #000;
-    line-height: 1.4;
+    font-size: 1.3rem;
+    color: #1a2440;
+    line-height: 1.5;
 }
 
+
+/* ---------- Sem planejamento (escuro, cards de vidro) ---------- */
 .semPlanejamento {
-    background: var(--bg-dark);
-    padding: 6rem 8rem;
-    align-items: center;
+    padding: 4.5rem 7rem 5rem;
+}
+
+.semPlanejamento h2,
+.semPlanejamento h2 span {
+    font-size: 3rem;
+    color: white;
+    line-height: 1.2;
+    font-weight: 700;
 }
 
 .semPlanejamento h2 {
-    font-size: 6rem;
-    color: white;
-    margin-bottom: 4rem;
-    line-height: 1.2;
+    margin-bottom: 3rem;
 }
 
-.semPlanejamento span {
+.semPlanejamento h2 span {
     color: var(--cyan);
-    font-size: 6rem;
 }
 
 .cardsPlanejamento {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .cardPlanejamento {
-    background: var(--cyan);
-    border-radius: 1.5rem;
-    padding: 2rem;
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 44rem;
-    width: 100%;
-    color: #000;
+    padding: 1.5rem;
+    border-radius: 1.6rem;
+    background: var(--vidro);
+    border: 1px solid var(--borda-ciano);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* fio de luz no topo do card */
+.cardPlanejamento::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+}
+
+.cardPlanejamento:hover {
+    transform: translateY(-0.6rem);
+    border-color: var(--cyan);
+    box-shadow: 0 2rem 5rem rgba(5, 219, 252, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .cardPlanejamento img {
-    width: 34rem;
-    height: 24rem;
+    width: 100%;
+    height: 15rem;
     object-fit: cover;
-    border-radius: 1rem;
-    margin-bottom: 1.5rem;
-    align-self: center;
+    border-radius: 1.1rem;
+    margin-bottom: 1.3rem;
 }
 
 .cardPlanejamento h3 {
-    font-size: 2.5rem;
-    color: var(--bg-dark);
+    font-size: 1.7rem;
+    color: var(--cyan);
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
 }
 
 .cardPlanejamento p {
-    font-size: 2rem;
-    color: var(--bg-dark);
+    font-size: 1.3rem;
+    color: #d7e3f5;
     font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
+    line-height: 1.55;
+}
+
+
+/* ---------- Seções verdes (Brasil e transformação) ---------- */
+.urbanizacaoBrasil,
+.transformacaoCidade {
+    background-color: var(--cinema-bg);
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size: 6rem 6rem;
+    background-attachment: fixed;
 }
 
 .urbanizacaoBrasil {
-    background: var(--cinema-bg);
-    padding: 6rem 8rem;
+    padding: 4.5rem 7rem 3rem;
 }
 
-.urbanizacaoBrasil h2 {
-    font-size: 6rem;
+.urbanizacaoBrasil h2,
+.destaqueAzul {
+    font-size: 3rem;
     color: #000;
     font-weight: 700;
 }
 
 .destaqueAzul {
-    color: var(--card-blue);
-    font-size: 6rem;
+    color: var(--bg-dark);
 }
 
 .subtituloBrasil {
-    font-size: 2rem;
-    color: #000;
-    margin-top: 0.5rem;
-    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    color: #00281a;
+    margin-top: 1.2rem;
+    margin-bottom: 2.4rem;
+}
+
+.cardGrafico,
+.cardFatores,
+.cardTransformacao {
+    background: white;
+    border-radius: 1.8rem;
+    box-shadow: 0 2rem 5rem rgba(0, 20, 84, 0.2);
 }
 
 .cardGrafico {
-    background: white;
-    border-radius: 1.5rem;
-    padding: 3rem;
-    margin-bottom: 3rem;
+    padding: 2rem;
+    margin-bottom: 2.4rem;
     display: flex;
     justify-content: center;
 }
 
 .cardGrafico img {
-    width: 120rem;
-    height: 50rem;
+    width: 100%;
+    max-width: 66rem;
+    height: auto;
 }
 
 .cardFatores {
-    background: white;
-    border-radius: 1.5rem;
-    padding: 3rem;
+    padding: 2.4rem;
     color: #000;
 }
 
 .cardFatores h3 {
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.9rem;
+    margin-bottom: 2rem;
     font-weight: 700;
+    color: var(--bg-dark);
 }
 
 .gridFatores {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    gap: 2.4rem;
 }
 
 .itemFator {
     display: flex;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 
 .itemFator img {
-    width: 16rem;
-    height: 13rem;
+    width: 11rem;
+    height: 9rem;
     object-fit: contain;
+    flex-shrink: 0;
 }
 
 .itemFator h4 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--bg-dark);
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .itemFator p {
-    font-size: 1.5rem;
-    color: var(--bg-dark);
-    line-height: 1.4;
+    font-size: 1.3rem;
+    color: #1a2440;
+    line-height: 1.5;
 }
 
 .transformacaoCidade {
-    background: var(--cinema-bg);
-    padding: 6rem 8rem;
+    padding: 3rem 7rem 5rem;
     display: flex;
     justify-content: center;
 }
 
 .cardTransformacao {
-    background: white;
-    border-radius: 2rem;
-    padding: 5rem 6rem;
+    padding: 4rem 5rem;
     width: 100%;
-    max-width: 110rem;
+    max-width: 100rem;
     color: #000;
 }
 
 .cardTransformacao h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: var(--card-blue);
     font-weight: 700;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
 }
 
 .cardTransformacao .subtitulo {
-    font-size: 2.5rem;
-    color: #000;
-    margin-bottom: 4rem;
+    font-size: 1.5rem;
+    color: #1a2440;
+    margin-bottom: 3rem;
 }
 
 .cardTransformacao h3 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: var(--card-blue);
     font-weight: 600;
-    margin-bottom: 5rem;
+    margin-bottom: 0.6rem;
 }
 
 .timeline {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .linhaCentral {
@@ -306,7 +416,7 @@
     top: 1rem;
     bottom: 1rem;
     width: 2px;
-    background-color: var(--bg-dark);
+    background: linear-gradient(180deg, var(--card-blue), var(--cyan), var(--card-blue));
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -321,9 +431,11 @@
 }
 
 .pontoTimeline {
-    width: 2.4rem;
-    height: 2.4rem;
-    background-color: var(--bg-dark);
+    width: 2rem;
+    height: 2rem;
+    background-color: #fff;
+    border: 0.4rem solid var(--card-blue);
+    box-shadow: 0 0 0 0.5rem rgba(5, 219, 252, 0.25), 0 0 1.6rem rgba(5, 219, 252, 0.6);
     border-radius: 50%;
     position: absolute;
     left: 50%;
@@ -335,50 +447,407 @@
     width: 43%;
 }
 
-.conteudoEsquerda {
-    text-align: left;
-}
-
-.conteudoDireita {
-    text-align: left;
-}
-
 .colunaImagem img {
     width: 100%;
-    height: 22rem;
+    height: 17rem;
     object-fit: cover;
-    border-radius: 1.5rem;
+    border-radius: 1.6rem;
     display: block;
+    box-shadow: 0 1.5rem 4rem rgba(0, 20, 84, 0.22);
 }
 
 .colunaTexto .ano {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--bg-dark);
+    color: var(--card-blue);
     display: block;
     line-height: 1;
+    margin-bottom: 0.4rem;
 }
 
 .colunaTexto h4 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--bg-dark);
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.9rem;
 }
 
 .colunaTexto p {
-    font-size: 2rem;
-    color: #000;
-    line-height: 1.5;
+    font-size: 1.4rem;
+    color: #1a2440;
+    line-height: 1.6;
 }
 
+
+/* ---------- Linha do tempo interativa ---------- */
+.dicaTimeline {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+    color: #1a2440;
+    margin-bottom: 3.2rem;
+}
+
+.dicaTimeline::before {
+    content: "";
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 1rem var(--cyan);
+    animation: pulsoTimeline 2s ease-in-out infinite;
+}
+
+@keyframes pulsoTimeline {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.timelineItem {
+    cursor: pointer;
+    outline: none;
+}
+
+.timelineItem .pontoTimeline,
+.timelineItem .colunaImagem img {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.timelineItem:hover .pontoTimeline,
+.timelineItem:focus-visible .pontoTimeline {
+    transform: translateX(-50%) scale(1.3);
+}
+
+.timelineItem:hover .colunaImagem img,
+.timelineItem:focus-visible .colunaImagem img {
+    transform: scale(1.03);
+    box-shadow: 0 1.5rem 4rem rgba(5, 219, 252, 0.45);
+}
+
+.timelineItem:hover .ano,
+.timelineItem:focus-visible .ano {
+    color: #009bb5;
+}
+
+/* botãozinho "Ver em foco" no texto de cada época */
+.colunaTexto::after {
+    content: "Ver em foco";
+    display: inline-block;
+    margin-top: 1.2rem;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--card-blue);
+    border-radius: 999px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--card-blue);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.timelineItem:hover .colunaTexto::after,
+.timelineItem:focus-visible .colunaTexto::after {
+    background: var(--card-blue);
+    color: #fff;
+}
+
+
+/* ---------- Época em foco (janela sobre a tela) ---------- */
+.foco {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background: rgba(0, 8, 34, 0.82);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.foco[hidden] {
+    display: none;
+}
+
+.foco.aberto {
+    opacity: 1;
+}
+
+.focoCartao {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    width: 100%;
+    max-width: 100rem;
+    max-height: 90vh;
+    overflow: hidden;
+    border-radius: 2rem;
+    background: linear-gradient(160deg, #07378F 0%, var(--bg-dark) 65%);
+    border: 1px solid var(--borda-ciano);
+    box-shadow: 0 3rem 8rem rgba(0, 0, 0, 0.55), 0 0 6rem rgba(5, 219, 252, 0.2);
+    transform: translateY(2.5rem) scale(0.92);
+    transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.foco.aberto .focoCartao {
+    transform: none;
+}
+
+.focoImagem {
+    position: relative;
+    min-height: 44rem;
+    overflow: hidden;
+}
+
+.focoImagem img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.foco.aberto .focoImagem img {
+    animation: zoomFoco 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+}
+
+@keyframes zoomFoco {
+    from {
+        transform: scale(1.15);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* transição suave para o texto */
+.focoImagem::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 60%, rgba(0, 20, 84, 0.9));
+    pointer-events: none;
+}
+
+.focoTexto {
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 4rem 3rem 3rem;
+    overflow-y: auto;
+}
+
+.conteudoFoco {
+    flex: 1;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.focoCartao.trocando .focoImagem img {
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.focoCartao.trocando .conteudoFoco {
+    opacity: 0;
+    transform: translateY(1rem);
+}
+
+.focoLocal {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--green-bright);
+    margin-bottom: 1rem;
+}
+
+.focoAno {
+    display: block;
+    font-family: 'Space Grotesk', 'Poppins', sans-serif;
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--cyan);
+    text-shadow: 0 0 3rem rgba(5, 219, 252, 0.45);
+    margin-bottom: 1rem;
+}
+
+.focoTexto h3 {
+    font-size: 2.6rem;
+    color: #fff;
+    margin-bottom: 1.6rem;
+}
+
+.focoTexto p {
+    font-size: 1.5rem;
+    line-height: 1.75;
+    color: #d7e3f5;
+}
+
+/* navegação entre as épocas */
+.focoNav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.6rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--borda-ciano);
+}
+
+.focoSeta,
+.focoFechar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 1px solid var(--borda-ciano);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
+
+.focoSeta:hover,
+.focoFechar:hover {
+    background: rgba(5, 219, 252, 0.2);
+    border-color: var(--cyan);
+}
+
+.focoSeta:disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+}
+
+.focoAnos {
+    display: flex;
+    gap: 0.8rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.focoAnos button {
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--borda-ciano);
+    background: transparent;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #d7e3f5;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.focoAnos button:hover {
+    border-color: var(--cyan);
+}
+
+.focoAnos button.ativo {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    color: var(--bg-dark);
+}
+
+.focoFechar {
+    position: absolute;
+    top: 1.6rem;
+    right: 1.6rem;
+    z-index: 2;
+    background: rgba(0, 20, 84, 0.6);
+    backdrop-filter: blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .foco,
+    .focoCartao,
+    .conteudoFoco,
+    .focoImagem img {
+        transition-duration: 0.01s;
+    }
+
+    .foco.aberto .focoImagem img,
+    .dicaTimeline::before {
+        animation: none;
+    }
+}
+
+
+/* ---------- Botão para Cidades Inteligentes ---------- */
+.proximaSecao {
+    padding: 6rem 7rem 7rem;
+    text-align: center;
+}
+
+.proximaSecao h2,
+.proximaSecao h2 span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.proximaSecao h2 span {
+    color: var(--cyan);
+}
+
+.proximaSecao p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    max-width: 50rem;
+    margin: 1.2rem auto 3rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.botaoCidades {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem 3.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #001b2e;
+    background: linear-gradient(135deg, #00ff9d, var(--cyan));
+    box-shadow: 0 0 3rem rgba(0, 255, 157, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botaoCidades svg {
+    transition: transform 0.25s ease;
+}
+
+.botaoCidades:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.6rem 4rem rgba(0, 255, 157, 0.5);
+}
+
+.botaoCidades:hover svg {
+    transform: translateX(0.5rem);
+}
+
+
+/* ---------- Rodapé ---------- */
 footer {
     background: var(--bg-dark);
     text-align: center;
     padding: 2rem;
+    border-top: 1px solid var(--borda-ciano);
 }
 
 footer p {
-    font-size: 1.8rem;
-    color: white;
+    font-size: 1.4rem;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.75);
 }

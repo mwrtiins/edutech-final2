@@ -4,11 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="../imgs/icone.png" type="image/x-icon">
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="stylesheet" href="../styles/cidades.css">
+    <link rel="stylesheet" href="../styles/cidade3d.css">
+    <link rel="stylesheet" href="../styles/casos.css">
+    <link rel="stylesheet" href="../styles/transicao.css">
+    <script src="../scripts/transicao.js"></script>
+    <script src="../scripts/cinema.js" defer></script>
+    <script src="../scripts/cidade3d.js" defer></script>
+    <script src="../scripts/casos.js" defer></script>
     <title>Cidades Inteligentes</title>
 </head>
 
@@ -32,7 +39,27 @@
                 planejar, administrar e melhorar os serviços urbanos. O principal objetivo desse modelo é aumentar a
                 qualidade de vida da população, tornando a cidade mais eficiente, sustentável, segura e inclusiva.</p>
         </div>
-        <img src="../imgs/cidadeSmart.png" alt="Ilustração Cidade Inteligente" class="imgCidadeSmart">
+        <div class="cidade3d" id="cidade3d">
+            <canvas role="img" aria-label="Modelo 3D de uma cidade inteligente. Arraste para girar."></canvas>
+            <img src="../imgs/cidadeSmart.png" alt="Ilustração Cidade Inteligente" class="cidade3dFallback">
+            <p class="c3dTexto" aria-live="polite"></p>
+            <div class="c3dTip" hidden><b></b><span></span></div>
+            <div class="c3dBarra">
+                <div class="c3dGrupo" role="group" aria-label="Camadas da cidade">
+                    <button type="button" data-camada="todos" aria-pressed="true">Tudo</button>
+                    <button type="button" data-camada="mobilidade" aria-pressed="false">Mobilidade</button>
+                    <button type="button" data-camada="energia" aria-pressed="false">Energia</button>
+                    <button type="button" data-camada="dados" aria-pressed="false">Dados</button>
+                    <button type="button" data-camada="verde" aria-pressed="false">Áreas verdes</button>
+                </div>
+                <div class="c3dGrupo">
+                    <button type="button" id="c3dGirar" aria-pressed="true">Girar</button>
+                    <button type="button" id="c3dNoite" aria-pressed="false">Noite</button>
+                    <button type="button" class="c3dZoom" id="c3dMais" aria-label="Aproximar">+</button>
+                    <button type="button" class="c3dZoom" id="c3dMenos" aria-label="Afastar">−</button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="tornaInteligente">
@@ -114,56 +141,91 @@
         <div class="cardsCaso">
             <div class="cardCaso">
                 <img src="../imgs/curotiba 1.png" alt="Ônibus Elétrico">
-                <div class="conteudoCaso">
-                    <h3>Mobilidade Urbana</h3>
-                    <p>A mobilidade urbana de Curitiba é estruturada pelo Sistema Integrado de Mobilidade (SIM), gerido
+                <div class="conteudoCaso" id="caso1">
+                    <div class="detalheCaso">
+                        <h3>Mobilidade Urbana</h3>
+                        <p>A mobilidade urbana de Curitiba é estruturada pelo Sistema Integrado de Mobilidade (SIM), gerido
                         pela Urbs e reconhecido mundialmente pelo pioneirismo no modelo BRT. Apoia-se em canaletas
                         exclusivas e estações-tubo, que agilizam trânsito e embarque, além de integração metropolitana e
                         mobilidade ativa com ciclovias e o projeto Caminhar Melhor.</p>
+                        <button type="button" class="verMenos">Ver menos</button>
+                    </div>
+                </div>
+                <div class="capaCaso">
+                    <p>Como uma canaleta de ônibus colocou Curitiba no mapa do mundo?</p>
+                    <button type="button" class="verMais" aria-expanded="false" aria-controls="caso1">Ver mais</button>
                 </div>
             </div>
 
             <div class="cardCaso inverte">
-                <div class="conteudoCaso">
-                    <h3>Meio ambiente e <br>Sustentabilidade</h3>
-                    <p>Curitiba se destaca em sustentabilidade com mais de 30 parques estratégicos, coleta seletiva
+                <div class="conteudoCaso" id="caso2">
+                    <div class="detalheCaso">
+                        <h3>Meio ambiente e <br>Sustentabilidade</h3>
+                        <p>Curitiba se destaca em sustentabilidade com mais de 30 parques estratégicos, coleta seletiva
                         eficiente e avanços em eletrificação, incluindo eletropostos, veículos elétricos na limpeza
                         urbana e IA no monitoramento do tráfego.</p>
+                        <button type="button" class="verMenos">Ver menos</button>
+                    </div>
                 </div>
                 <img src="../imgs/meio 1.png" alt="Estação Tubo Verde">
+                <div class="capaCaso">
+                    <p>Uma cidade com mais de 30 parques: o que ela faz para continuar verde?</p>
+                    <button type="button" class="verMais" aria-expanded="false" aria-controls="caso2">Ver mais</button>
+                </div>
             </div>
 
             <div class="cardCaso">
                 <img src="../imgs/pilarex 1.png" alt="Vista aérea Curitiba">
-                <div class="conteudoCaso">
-                    <h3>Planejamento e <br>Mobilidade</h3>
-                    <p>O planejamento e a mobilidade de Curitiba se apoiam em pilares complementares: o Sistema BRT,
+                <div class="conteudoCaso" id="caso3">
+                    <div class="detalheCaso">
+                        <h3>Planejamento e <br>Mobilidade</h3>
+                        <p>O planejamento e a mobilidade de Curitiba se apoiam em pilares complementares: o Sistema BRT,
                         pioneiro em canaletas exclusivas e estações-tubo que garantem rapidez no embarque, e o
                         planejamento integrado, conduzido pelo IPPUC, unindo uso do solo e sistema viário. Na mobilidade
                         ativa, a cidade soma mais de 252 km entre ciclovias, ciclofaixas e vias compartilhadas, além de
                         investir na modernização de linhas troncais como Inter 2 e Interbairros II.</p>
+                        <button type="button" class="verMenos">Ver menos</button>
+                    </div>
+                </div>
+                <div class="capaCaso">
+                    <p>Por trás do trânsito organizado de Curitiba existe um plano. Qual?</p>
+                    <button type="button" class="verMais" aria-expanded="false" aria-controls="caso3">Ver mais</button>
                 </div>
             </div>
 
             <div class="cardCaso inverte">
-                <div class="conteudoCaso">
-                    <h3>Vale do Pinhão</h3>
-                    <p>Curitiba investe em inovação com o Vale do Pinhão, conectando startups e universidades, o
+                <div class="conteudoCaso" id="caso4">
+                    <div class="detalheCaso">
+                        <h3>Vale do Pinhão</h3>
+                        <p>Curitiba investe em inovação com o Vale do Pinhão, conectando startups e universidades, o
                         Hipervisor Urbano para dados em tempo real, e o Curitiba APP com IA para atendimento ao cidadão.
                         Destaca-se ainda pela Fábrica de Ideias (quase R$ 300 milhões), liderança em rede 5G e frotas
                         elétricas de transporte público.</p>
+                        <button type="button" class="verMenos">Ver menos</button>
+                    </div>
                 </div>
                 <img src="../imgs/vava.png" alt="Vale do Pinhão à noite">
+                <div class="capaCaso">
+                    <p>E se a cidade inteira virasse um laboratório de inovação?</p>
+                    <button type="button" class="verMais" aria-expanded="false" aria-controls="caso4">Ver mais</button>
+                </div>
             </div>
 
             <div class="cardCaso">
                 <img src="../imgs/titi 1.png" alt="Jardim Botânico">
-                <div class="conteudoCaso">
-                    <h3>Por que Curitiba é <br>uma referência?</h3>
-                    <p>Curitiba é uma referência mundial em planejamento urbano, transporte público eficiente e
+                <div class="conteudoCaso" id="caso5">
+                    <div class="detalheCaso">
+                        <h3>Por que Curitiba é <br>uma referência?</h3>
+                        <p>Curitiba é uma referência mundial em planejamento urbano, transporte público eficiente e
                         sustentabilidade ambiental. A capital do Paraná destaca-se pela alta qualidade de vida e
                         inovação em mobilidade, integrando o crescimento urbano à preservação de extensas áreas verdes.
                     </p>
+                        <button type="button" class="verMenos">Ver menos</button>
+                    </div>
+                </div>
+                <div class="capaCaso">
+                    <p>O que faz Curitiba ser exemplo para o mundo?</p>
+                    <button type="button" class="verMais" aria-expanded="false" aria-controls="caso5">Ver mais</button>
                 </div>
             </div>
         </div>
@@ -171,46 +233,65 @@
 
     <section class="cinema">
         <h2>Cidades do futuro no <span>Cinema</span></h2>
+        <p class="subtituloCinema">Clique nos pôsteres para descobrir cada filme.</p>
+
+        <div class="progressoFilmes">
+            <p class="contadorFilmes"><span id="filmesDescobertos">0</span> de 3 filmes descobertos</p>
+            <div class="barraFilmes"><i id="barraFilmes"></i></div>
+        </div>
 
         <div class="cardsCinema">
-            <div class="cardCinema">
-                <a href="https://www.imdb.com/pt/title/tt1856101/" target="_blank">
-                    <img src="../imgs/blade.png" alt="Blade Runner 2049">
-                </a>
-                <div class="infoCinema">
-                    <h3>Blade Runner 2049</h3>
-                    <span class="ano">2017</span>
-                    <p>Blade Runner 2049 apresenta uma cidade futurista marcada pela superpopulação, pela tecnologia e
-                        por fortes contrastes sociais. O filme ajuda a imaginar possíveis desafios das cidades do futuro
-                        e os impactos do avanço tecnológico.</p>
+            <article class="filme" tabindex="0" aria-label="Descobrir Blade Runner 2049">
+                <div class="filmeInterno">
+                    <div class="filmeFrente">
+                        <img src="../imgs/blade.png" alt="Pôster de Blade Runner 2049">
+                        <div class="filmeRotulo"><span class="ponto"></span><span class="textoRotulo">Descobrir filme</span></div>
+                    </div>
+                    <div class="filmeVerso">
+                        <img class="banner" src="../imgs/blade.png" alt="">
+                        <div class="filmeTexto">
+                            <span class="ano">2017</span>
+                            <h3>Blade Runner 2049</h3>
+                            <p>Blade Runner 2049 apresenta uma cidade futurista marcada pela superpopulação, pela tecnologia e por fortes contrastes sociais. O filme ajuda a imaginar possíveis desafios das cidades do futuro e os impactos do avanço tecnológico.</p>
+                            <a class="verImdb" href="https://www.imdb.com/pt/title/tt1856101/" target="_blank" rel="noopener">Ver no IMDb</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="cardCinema">
-                <a href="https://www.imdb.com/pt/title/tt0343818/" target="_blank">
-                    <img src="../imgs/robot.png" alt="I, Robot">
-                </a>
-                <div class="infoCinema">
-                    <h3>I, Robot</h3>
-                    <span class="ano">2004</span>
-                    <p>I, Robô apresenta uma sociedade em que robôs e inteligência artificial fazem parte do cotidiano.
-                        O filme permite discutir como a tecnologia pode transformar os serviços, a segurança e a relação
-                        entre humanos e máquinas.</p>
+            </article>
+            <article class="filme" tabindex="0" aria-label="Descobrir I, Robot">
+                <div class="filmeInterno">
+                    <div class="filmeFrente">
+                        <img src="../imgs/robot.png" alt="Pôster de I, Robot">
+                        <div class="filmeRotulo"><span class="ponto"></span><span class="textoRotulo">Descobrir filme</span></div>
+                    </div>
+                    <div class="filmeVerso">
+                        <img class="banner" src="../imgs/robot.png" alt="">
+                        <div class="filmeTexto">
+                            <span class="ano">2004</span>
+                            <h3>I, Robot</h3>
+                            <p>I, Robô apresenta uma sociedade em que robôs e inteligência artificial fazem parte do cotidiano. O filme permite discutir como a tecnologia pode transformar os serviços, a segurança e a relação entre humanos e máquinas.</p>
+                            <a class="verImdb" href="https://www.imdb.com/pt/title/tt0343818/" target="_blank" rel="noopener">Ver no IMDb</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="cardCinema">
-                <a href="https://www.imdb.com/pt/title/tt0343818/" target="_blank">
-                    <img src="../imgs/metropolis.png" alt="Metropolis">
-                </a>
-                <div class="infoCinema">
-                    <h3>Metropolis</h3>
-                    <span class="ano">1927</span>
-                    <p>Metrópolis mostra uma cidade industrializada e dividida socialmente. O filme permite refletir
-                        sobre os impactos da industrialização, do crescimento urbano acelerado e da desigualdade social
-                        nas cidades.</p>
+            </article>
+            <article class="filme" tabindex="0" aria-label="Descobrir Metropolis">
+                <div class="filmeInterno">
+                    <div class="filmeFrente">
+                        <img src="../imgs/metropolis.png" alt="Pôster de Metropolis">
+                        <div class="filmeRotulo"><span class="ponto"></span><span class="textoRotulo">Descobrir filme</span></div>
+                    </div>
+                    <div class="filmeVerso">
+                        <img class="banner" src="../imgs/metropolis.png" alt="">
+                        <div class="filmeTexto">
+                            <span class="ano">1927</span>
+                            <h3>Metropolis</h3>
+                            <p>Metrópolis mostra uma cidade industrializada e dividida socialmente. O filme permite refletir sobre os impactos da industrialização, do crescimento urbano acelerado e da desigualdade social nas cidades.</p>
+                            <a class="verImdb" href="https://www.imdb.com/pt/title/tt0017136/" target="_blank" rel="noopener">Ver no IMDb</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
     </section>
 
